@@ -1,0 +1,276 @@
+/* ============= CUSTOM CSS ============== */
+/*Generic HTML tag fixes*/
+a{cursor: pointer; outline: 0;}/*making links show a pointer on hover and removing outline*/
+figure{margin: 0;}
+select{max-width: 100%;}
+li {line-height: inherit;}
+blockquote{border-left: 0;}/*removing Bootstrap’s left border on <blockquote>*/
+
+/*Framework Fixes*/
+.row-fluid [class*="span"]{min-height: 1px;}/*reducing min height of empty columns so they don't take up so much height*/
+.layout {position: relative; z-index: 0;} /* keeps layout contents from appearing over important lightboxes and banners */
+.carousel {position: relative; z-index: 0;} /* keeps carousel descendants from stacking independent of the carousel itself */
+.mobilemenu {position: relative; z-index: 100;} /* keeps the mobile menu from appearing over the emergency bulletin */
+.fixed-bulletin {position: relative; z-index: 500 !important;} /* keeps the fixed bulletin banner from appearing over the bulletin lightbox */
+html.styler .externalvideo{padding: 10px;} /*Adding some clickable space around an embed item in Edit Style so you can click on it and apply a style*/
+.bulletin-banner .fixed-region{position: static;}/*removing fixed region when emergency bulletin banner is on, so header isn't showing 1/2 way down the screen as you scroll down the page*/
+.bulletin-banner .fixed-region + .region{margin-top: 0 !important;}/*removing the margin top on the region below the fixed header when the emergency bulletin banner is on*/
+
+/*Carousel Fixes*/
+.content .flexslider{-webkit-box-shadow: none;-moz-box-shadow: none;-o-box-shadow: none;box-shadow: none;border: 0;-webkit-border-radius: 0;-o-border-radius: 0;border-radius: 0;background: none;}/*removing carousel default styles*/
+.carousel.gallery-style.flexslider{height: auto !important} /* --- fixing height issue on sidebar gallery --- */
+.carousel.gallery-style.flexslider .flex-viewport{border: 0 !important} /* --- removing default border around image in Sidebar Galleries --- */
+.carousel .slides, .carousel .flex-direction-nav{list-style: none;} /* --- removing bullets from showing when carousel loads --- */
+.background-carousel .details {opacity: 0}/*hiding carousel details until they transition in, so you don’t see them on page load*/
+.carousel figure{min-height: 0 !important;} /* --- min-height being set by default in the carousel code - causes extra space below banner photos on mobile --- */
+.carousel .flex-direction-nav .flex-disabled{opacity: 0 !important;}/*not showing the back/next arrow when the carousel has nothing to rotate and is disabled*/
+.carousel.flexslider.gallery-style.arrows .flex-direction-nav li{margin: 0;}/*removing news li margins in gallery bar in single image carousel w/ sidebar gallery turned on*/
+.background-carousel .detail-container .details{position: absolute; z-index: -1;}/*setting carousel details to absolute to prevent horizontal scroll bar caused by other details stacking up to the right of the current details container*/
+.background-carousel .detail-container .details.current-details{position: relative; z-index:1;}/*setting the current details container back to position: relative - it’s default style*/
+.background-carousel .crl-details::after{content: " "; display: table; clear: both;}/*fixing collapsed details container, that causes some content within the details container to extend out of the details box.*/
+.background-carousel .bg-images{-webkit-backface-visibility: hidden; backface-visibility: hidden; }/*fixing display issues with background carousel when hovering over other items on the page*/
+.background-carousel .detail-container .details.current-details{display: block;}/*Showing the background carousel details container for the current slide*/
+.flex-direction-nav .flex-disabled {opacity: 0!important; cursor:none; pointer-events:none;} /*turn off arrows if no more content in a gallery*/
+
+/*Menu & Navigation Widget Fixes*/
+.menu a, .nav-menu a{color: inherit; text-decoration: none;}/*setting menu links to inherit color from item, and removing underline*/
+.mm-button, .mm-button.dl-active, .mm-button:hover{background-color: transparent;}/*removing background color from mobile menu button*/
+.menu-type-accordion .sub2:last-child::after,.menu-type-accordion .sub3:last-child::after{padding-bottom: 0px} /* --- removing extra space at bottom of accordion menu subnav --- */
+.menu-type-vertical.menu-action-hover.menu-animate-true ul>li:hover>.submenu, .menu-type-vertical.menu-action-hover.menu-animate-true ul li>li:hover>.submenu{left: 100%}/*Fix iOS not setting flyout menu to right of the menu (showing below)*/
+.menu-direction-left .l1-item:hover > .submenu{left: 100% !important;}/*fix left position on sub menu when there is a width set on the submenu*/
+.menu-type-vertical.menu-direction-left .arrow, .menu-type-vertical.menu-direction-left .subnav .arrow{border-left-color: inherit;}/*Set the Vertical Flyout Menu Subnav indicator to the text color*/
+.menu-type-vertical.menu-direction-right .arrow, .menu-type-vertical.menu-direction-right .submenu .arrow{border-right-color: inherit;}/*Set the Vertical Flyout Menu Subnav indicator to the text color*/
+.menu-type-horizontal ul .submenu .submenu{top: 0;}/*Aligning level 3 menu with level 2 item in a dropdown menu*/
+.menu-type-mega {position: relative; z-index: 90;}/*fixing mega menu z-index so other subnavs can show over it on hover*/
+.menu-type-mega ul .panel a:not(.button){display: inline;}/*resetting links inside the mega menu panel to inline*/
+.menu-type-mega ul .panel a.links-urllink {display: block;}/*setting link content text links to block for button styles; may need to remove this line or set your style to display: inline!important; if you want them inline */
+.menu-type-mega ul .panel .menu-item a{display: block;}/*setting menu links back to block*/
+.mini-sitemap-open, .mini-sitemap-close{display: inline-block;}/*set sitemap open/close buttons to inline-block so they behave like buttons*/
+.mini-sitemap ul.collapsed{height: auto;}/*allowing mini site map nav to collapse*/
+.mini-sitemap .width-7{width: 13%; margin-right: 1%;}/*setting a width for 7 menu items in the mini sitemap*/
+.mini-sitemap .width-8{width: 11.5%; margin-right: 1%;}/*setting a width for 8 menu items in the mini sitemap*/
+.mini-sitemap .width-9{width: 10.5%; margin-right: .5%;}/*setting a width for 9 menu items in the mini sitemap*/
+.mini-sitemap .width-10{width: 9.5%; margin-right: .4%;}/*setting a width for 10 menu items in the mini sitemap*/
+
+
+/*Block Style or Content Fixes*/
+.brief-description ul, .long-description ul, .caption ul, .lists ul .long-description ul, .lists ul .brief-description ul{list-style: disc outside; padding: 0; margin: 0 0 .5em 1em;} /* --- resetting list style within a brief or long description, caption --- */
+.downloads .subcategory-group > ul{margin: 0;} /* --- removing margin from UL around download 
+items --- */
+.email{-ms-word-break: break-all; word-break: break-all;}/*breaking long emails so they stay within the container*/
+.fund .chart.top{max-width: 100%;}/*correcting width of annual fund chart when the alignment is set to top*/
+.facultystaffdirectory .table{width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}/*make the table that wraps the faculty staff directly content go the full width, so some content doesn’t wrap unnecessarily*/
+.no-mobile .telephone, .no-mobile .telephone:hover{text-decoration: none; color: inherit; font-weight: inherit; pointer-events: none;}/*don't show telephone links on non-mobile devices*/
+.text .photos.left{margin-right: 10px; margin-bottom: 10px; max-width: 100%;}/*adding space between photos and text when photos are set to left, adding fix for Firefox allowing photos to break out of parent container*/
+.text .photos.right{margin-left: 10px; margin-bottom: 10px; max-width: 100%;}/*adding space between photos and text when photos are set to right, adding fix for Firefox allowing photos to break out of parent container*/
+.fixed-bulletin{-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box;}/*Adding box sizing to emergency bulletin banner, because padding causes a scroll bar*/
+a.custom-link-photo {text-decoration: none;}/*No underlines on link images*/
+.athleticrecentgames .container-fluid{padding: 0;}/*removing left/right padding around content container on athletic schedule from Bootstrap styles*/
+.facultystaffdirectory .faculty-staff-list ul li img{height: auto !important;}/*allow directory photo to go to natural proportions*/
+.calendardatepicker .month-pager::after{content: "";display: table; clear: both;}/*adding clearfix to calendar buttons above date picker*/
+.news .carousel ul li, .news ul li.details{margin: 0;}/*remove bottom margin from items in news carousels*/
+.newsdetail, .eventdetail, .announcementdetail, .listdetail  {line-height: inherit;}/*removes line-height being applied to news detail content*/
+.downloads ul li{padding: 0;}/*remove 5px of padding at the bottom of downloads item, so styling can be consistent across content types*/
+.newsarchivedatepicker .year-container .row-fluid .span6{display: none;}/*News Archive Date Picker - hiding empty divs, so I can set arrows & year to span across container*/
+.newsarchivedatepicker .year-container .row-fluid .span4{width: 33%; margin: 0; float: left;}/*News Archive Date Picker - setting arrows & year to span across container*/
+.group::after{content: ""; display: table; clear: both;}/*putting clearfix on Group items so that floated content inside group, such as images, don’t horizontally “stack”*/
+.play-button img {display: none;}/*Hiding film image in media widget*/
+ul.album-list{margin: 0;} /* --- removing margin from UL around media gallery items --- */
+.affinity h4 span.first-name::after, .affinity h4 span.last-name::after{content: " "; font-size: 0;}/*Helping affinity names to wrap*/
+.affinity ul li img:not(.left) ~ div.details, .affinity ul li img:not(.right) ~ div.details { display: block;}/*setting affinity details to display: block, when the image is set to above, so the details will go the full width of the block*/
+.affinity ul li img.left ~ div.details, .affinity ul li img.right ~ div.details{display: table-cell;}/*setting the details to table-cell when the image is on the left or right*/
+.news ul li img.left, .news ul li img.right{max-width: 50%;}/*keeping news thumbnails no larger than 50% of the width of the container to give the text more room on smaller widths/viewports*/
+.album .photo-list{margin: 0;}/*removing the 10px bottom margin from the ul around the photos*/
+.game{clear: both;}/*adding clear, so the Print button on the schedule shows above the 1st game*/
+.athleticrecentgames .game .ath-game-info{width: 100%;}/*Recent Games - make game info full width*/
+.athleticrecentgames .game .ath-game-info + .span8{display: none;}/*Recent Games - remove empty div taking up space next to game info*/
+.athleticteamstatistics table{width: 100%;}/*Athletic Statistics - setting to full width*/
+.athleticteampicker .teampicker-control, .departmentpicker .deptpicker-control{margin: 0;}/*removing the 10px bottom margin from the bottom of the team picker so we can better control with styling*/
+html.styler .athleticteaminfo .team-accolades {display: none;}/*Hide accolades from team description since you can't populate it*/
+.team-list{width: 100%;}/*Setting team list to full width of the column*/
+.search-text::-webkit-input-placeholder {color: inherit;}/*setting search input placeholder to inherit the color that is set*/
+.search-text::-moz-placeholder {color: inherit;}/*setting search input placeholder to inherit the color that is set*/
+.search-text:-ms-input-placeholder {color: inherit;}/*setting search input placeholder to inherit the color that is set*/
+.search-text::placeholder {color: inherit;}/*setting search input placeholder to inherit the color that is set*/
+.announcement .archive {display: none;}/*Hiding the archive button in announcements, since there is no announcement archive*/
+.calendardatepicker .day a, .calendardatepicker .day-header span{height: auto;}/*Allowing calendar date picker cells to render at the height specified by the text and styling*/
+/* =============== STYLES ================ */
+
+/*Announcement & Affinity margin*/
+.announcement ul li h4, .affinity ul li h4 {margin: 0 0 .25em 0;}/*setting announcement & affinity margin to match Global <h4> margin, by overriding School Website default*/
+
+/*News Archive*/
+.newsarchivelist > h4 {display: none;}/*Hiding Year on News Archive List*/
+
+/* GLOBAL: Hiding email addresses and showing Email as a label instead */
+          .affinity a.email,
+          .departmentfaculty a.email,
+          .athleticteamcoach a.email,
+          .facultystaffdirectory .email a, .obscure-email { font-size: 0; letter-spacing: 0; text-decoration: none;}
+          .affinity a.email:before,
+          .departmentfaculty a.email:before,
+          .athleticteamcoach a.email:before,
+          .facultystaffdirectory .email a:before, .obscure-email:before { font-size: 1rem; content: 'Email'; text-decoration: underline;} 
+          .affinity div.details h4 span { display: inline-block; }
+
+/*Video play button - customizing color*/
+.aws-player.video-js:hover .vjs-big-play-button, .aws-player.video-js .vjs-big-play-button:focus, 
+.aws-player.video-js .vjs-big-play-button:active, .aws-player.video-js .vjs-play-progress, .aws-player.video-js .vjs-volume-level {background-color: #333;}
+
+/*ML/INT: Page Title | Current Page Title Only*/
+html:not(.styler) .style-102664 div.page-title{display: none}/*hide parent page titles; only show current page title*/
+
+/*INT: Button & INT: Button | Inline*/
+.styler .style-102658 A:before, .styler .style-102659 A:before {position: static;}/*Allowing clicking on other elements within the Group, when in the Styler, by removing the psuedo element that is covering the whole group that makes it a button*/
+
+
+/***Calendar Grid View Styles***/
+
+/*Make Entire Category Clickable*/
+.style-102655 .filter-item label.checkbox:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+
+/***Calendar List View Styles***/
+
+/*Hide First Filter Group*/
+.style-102654 .calendarfilter .button-group:first-child {
+    display: none;
+}
+
+/*Make Entire Category Clickable for Calendar and News Archive*/
+.style-102654 .filter-item label.checkbox:after, .style-102662 .filter-item label.checkbox:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+/*News Archive Date Picker*/
+.style-102662 .row-fluid .span12 {
+    width: 50%;
+    margin-left: 0;
+}
+
+/*News Archive Date Picker Left Column*/
+.style-102662 .row-fluid .span12:first-child button{ 
+    border-left: solid 1px #ccc;
+}
+
+
+/* ============== MEDIA QUERIES ================ */
+
+/* --- Full Desktop --- */
+@media(min-width:1200px){
+
+}/* --- END full desktop --- */
+
+/* --- Small Desktop --- */
+@media(max-width:1199px) and (min-width:980px){
+.span9 .facultystaffdirectory .table-cell, 
+.span8 .facultystaffdirectory .table-cell, 
+.span7 .facultystaffdirectory .table-cell,  
+.span6 .facultystaffdirectory .table-cell, 
+.span5 .facultystaffdirectory .table-cell, 
+.span4 .facultystaffdirectory .table-cell, 
+.span9 .departmentpicker .table-cell, 
+.span8 .departmentpicker .table-cell, 
+.span7 .departmentpicker .table-cell, 
+.span6 .departmentpicker .table-cell, 
+.span5 .departmentpicker .table-cell,
+.span4 .departmentpicker .table-cell,
+.span9 .athleticteampicker .table-cell,
+.span8 .athleticteampicker .table-cell,
+.span7 .athleticteampicker .table-cell,
+.span6 .athleticteampicker .table-cell,
+.span5 .athleticteampicker .table-cell, 
+.span4 .athleticteampicker .table-cell  {display: inline-block;} /* --- allowing dropdowns to wrap --- */
+}/* --- END Small Desktop --- */
+
+/* --- Tablet --- */
+@media(max-width:979px) and (min-width:768px){
+.facultystaffdirectory .table-cell, .departmentpicker .table-cell, .athleticteampicker .table-cell{display: inline-block;} /* --- allowing dropdowns to wrap on tablet --- */
+html:not(.styler) .directions-link {padding-left: 3%!important; padding-right: 3%!important;box-sizing: border-box;}/*adding some padding to the athletic schedule directions button, due to onMessage removing all left/right padding*/
+.calendargrid .large-calendar-grid .day-holder .day{min-height: 1em;}/*resetting minimum height of calendar grid days, so that there is not a gap below the background color*/
+}/* --- END Tablet --- */
+
+/* --- Mobile --- */
+@media(max-width:767px){
+.mini-sitemap .width-7, .mini-sitemap .width-8, .mini-sitemap .width-9, .mini-sitemap .width-10{width: 100%; margin-right: 0;}/*stacking mini sitemap items*/
+.facultystaffdirectory .table, .facultystaffdirectory .table-row{display: block;}/*removing display: table & table-row*/
+.facultystaffdirectory .table-cell, .departmentpicker .table-cell{display: inline-block; max-width: 100%;} /* --- allowing dropdowns to wrap on mobile & not break out of box --- */
+.row-fluid [class*="offset"]:first-child{margin-left:0}/*remove left margin from first-child on mobile*/
+.team-list .column{width: 100%; display: block;} /*stack team list columns on tablet & mobile*/
+html:not(.styler) .directions-link {padding-left: 3%!important; padding-right: 3%!important;box-sizing: border-box;}/*adding some padding to the athletic schedule directions button, due to onMessage removing all left/right padding*/
+.calendargrid .large-calendar-grid .day-holder .day{min-height: 1em;}/*resetting minimum height of calendar grid days, so that there is not a gap below the background color*/
+/*INT: Reverse mobile stacking order -left column first - setting flex so the order of columns can be reversed*/
+.style-102656 { display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-direction: column-reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse;}
+ 
+ 
+/***Team Detail Page***/
+/*Team Schedule - Print Button*/
+.style-102661 a.print-button {
+    margin: 0;
+    float: none;
+}
+
+/*Team Schedule - Schedule Site*/
+.style-102661 .schedule-site {
+    margin: 0;
+    float: none;
+    text-align: left;
+}
+
+/*Team Schedule - League Status*/
+.style-102661 .league-status {
+    float: none;
+    text-align: left;
+}
+
+/*Team Schedule - Game Status*/
+.style-102661 .game-status {
+    float: none;
+    text-align: left;
+}
+
+/*Team Schedule - Opponent*/
+.style-102661 .schedule-opponent {
+    width: 100%;
+    display: block;
+}
+ 
+/*Team Schedule - Result*/
+.style-102661 .game .schedule-result {
+    width: 100%;
+    text-align: left;
+    display: block;    
+}
+
+/*Team Schedule - Buttons*/
+.style-102661 .game .schedule-buttons {
+    float: none;
+}
+
+/*News Archive Remove Float on Photo*/
+.style-102662 .newsarchivelist ul li img.left {
+    float: none;
+}
+
+/*News Archive Date Picker*/
+.style-102662 .row-fluid .span12 {
+    width: 100%;
+    margin-left: 0;
+}
+
+
+}/* ---END Mobile --- */
